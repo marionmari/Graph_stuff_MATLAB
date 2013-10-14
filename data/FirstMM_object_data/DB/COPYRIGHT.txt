@@ -1,0 +1,40 @@
+
+==========================================================================
+ Copyright (C) 2013
+ Marion Neumann [marion dot neumann at uni-bonn dot de]
+ Plinio Moreno [plinio at isr dot ist dot utl dot pt]
+ Laura Antanas [laura dot antanas at cs dot kuleuven dot be]
+
+ All files in this folder are part of the FirstMM_object_data.
+
+ FirstMM_object_data by M. Neumann, P. Moreno, L. Antanas is licensed under
+ a Creative Commons Attribution-ShareAlike 3.0 Unported License 
+ (http://creativecommons.org/licenses/by-sa/3.0/).
+
+
+ If you use this data please cite the following paper: 
+ "M. Neumann, P. Moreno, L. Antanas, R. Garnett, Kristian Kersting. Graph Kernels
+ for Object Category Prediction in Task-Dependent Robot Grasping. In Proceedings
+ of the Eleventh Workshop on Mining and Learning with Graphs (MLG{--}2013) at KDD
+ 2013, Chicago, US, Aug. 11 2013"
+ 
+ We recommend the following BIBTEX entry:
+ @inproceedings {Neumann13mlg,
+  author = {M. Neumann and P. Moreno and L. Antanas and R. Garnett and K. Kersting},
+  title = {{Graph Kernels for Object Category Prediction in Task-Dependent Robot Grasping}},
+  year = {2013},
+  booktitle = {Proceedings of the Eleventh Workshop on Mining and Learning with Graphs (MLG{--}2013)},
+  address = {Chicago, US}
+ }
+
+
+ FirstMM_object_data is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the Creative
+ Commons Attribution-ShareAlike 3.0 Unported License for more details.
+
+ You should have received a copy of the Creative Commons 
+ Attribution-ShareAlike 3.0 Unported License along with this program;
+ if not, see <http://creativecommons.org/licenses/by-sa/3.0/>.
+==========================================================================
+
