@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <title>GraphDemo</title>
+  <meta content="Evrsoft First Page" name="GENERATOR">
+</head>
+
+<body>
+  <table style="WIDTH: 100%; HEIGHT: 20%" align="center" bgcolor="#00FFFF">
+    <tbody>
+      <tr>
+        <td width="10%"><img height="150" src="GraphPicture.png" width="190" border="0"></td>
+
+        <td width="5%"></td>
+
+        <td width="80%">
+          <p align="left"><font face="Verdana" size="6">DemoSSL</font></p>
+
+          <p align="left"><font face="Verdana" size="4">a Matlab GUI to explore semi-supervised learning and the influence of different similarity graphs</font></p>
+
+          <p align="left">&nbsp;</p>
+
+          <p align="left"><font face="Verdana">by <a href="http://www.ml.uni-saarland.de/index.html">Matthias Hein</a> and <a href="http://www.kyb.mpg.de/~ule">Ulrike von Luxburg</a></font></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p align="center"><a href="GraphDemo.html"><font face="Arial" size="5">[ Go to GraphDemo main page]</font></a></p>
+
+  <h3><font face="Verdana">Purpose</font></h3>
+
+  <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <p><font face="Verdana">DemoSSL: The purpose of this demo is to show how graph-based semi-supervised learning depends on the graph structure, the amount of labeled data and the regularization
+    parameter. As algorithm we use the one proposed by <a href="http://www.kyb.mpg.de/publications/pdfs/pdf2333.pdf">Zhou et al: "Learning with local and global consistency"</a>.<br></font></p>
+  </blockquote>
+
+  <h3><font face="Verdana">Tutorial</font></h3>
+
+  <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <p><font face="Verdana">DemoSSL has been used for teaching purposes at the Machine Learning Summer School 2007 in Tuebingen, Germany. The tutorial presents the theoretical basis of the algorithm
+    of Zhou as well as of related ones. The influences of the different parameters on the classification results of the semisupervised learning algorithm are discussed, too.</font><br></p>
+  </blockquote>
+
+  <p align="center"><a href="HeinLuxburg_SlidesSemisupervisedLearning.pdf"><font face="Verdana" size="5">Download tutorial on semi-supervised learning</font></a></p>
+
+  <p>&nbsp;</p>
+
+  <h3><font face="Verdana">Screenshot of DemoSimilarityGraphs</font></h3>
+
+  <p align="center"><img style="WIDTH: 52.26%; HEIGHT: 52.26%" height="948" src="fig_DemoSSL.png" width="100%" border="0"></p><br>
+  <br>
+
+  <h3><font face="Verdana">Panels in DemoSSL</font></h3>
+
+  <div style="margin-left: 2em">
+    <ul>
+      <li><font face="Verdana"><strong><em>Plots:</em></strong> From left to right, the labeled and unlabeled points, the associated neighborhood graph and the result of the semi-supervise learning
+      algorithm.</font></li>
+
+      <li><font face="Verdana"><strong><em>Data Generator (Left):</em></strong> One can choose to draw data from a new dataset as well as a new sample from the same dataset. The latter is useful if
+      one wants to study the influence of the statistical fluctuations on the semi-supervised learning algorithm.</font></li>
+
+      <li><font face="Verdana"><strong><em>Graph Properties (Middle):</em></strong> The neighborhood graph and its parameter (the number of neighbors k or the neighborhood radius eps) can be choosen
+      as well as the parameter sigma (kernel width) of the Gaussian weights.</font></li>
+
+      <li><font face="Verdana"><strong><em>Graph Statistics (Middle/Bottom):</em></strong> The number of edges as well as the weights of the edges within/between the different classes are shown.
+      Additionally, the number of the connected components of the graph is presented.</font></li>
+
+      <li><font face="Verdana"><strong><em>SSL Parameters (Middle/Right):</em></strong> The control for the regularization parameter of the graph.</font></li>
+
+      <li><font face="Verdana"><strong><em>SSL Classification results (Middle/Right):</em></strong> The percentage of training and test (on the unlabeled data) error are shown. Additionally, also
+      the percentage of unlabeled points is reported. Points which are unlabeled are also counted as errors. However, unlabeled points should be rather seen as a third class which indicates that the
+      algorithm has not enough information to infer their labels.</font></li>
+    </ul>
+  </div>
+</body>
+</html>

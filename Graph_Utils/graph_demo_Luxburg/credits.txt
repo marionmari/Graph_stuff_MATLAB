@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%% CREDITS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This demo on graph based learning algorithms has been written by
+Matthias Hein and Ulrike von Luxburg. It has been first used at the practical
+sessions of the Machine Learning Summer School 2007 at the
+Max Planck Institute for Biological Cybernetics in Tuebingen, Germany: 
+http://www.mlss.cc/tuebingen07/
+
+This demo is released under the GNU General Public License (GPL). It
+can be used by everybody, as long as this file and the credit comments
+in the demo are not removed. 
+
+Please send comments, suggestions and bug reports to:
+
+Matthias Hein
+Saarland University, Germany
+http://www.ml.uni-saarland.de/contact.html
+
+or 
+
+Ulrike von Luxburg
+Max Planck Institute for Biological Cybernetics, Tuebingen, Germany
+http://www.kyb.mpg.de/~ule
+
+
+For the kMeans clustering algorithm used in spectral clustering we use
+the kMeans2 function from the
+
+Piotr's Image & Video Toolbox for Matlab
+
+developed by Piotr Dollar. It can be downloaded at 
+
+http://vision.ucsd.edu/~pdollar/toolbox/doc/
+
+His toolbox is released under the lesser GPL. Thanks to him for making
+his toolbox publicly available.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

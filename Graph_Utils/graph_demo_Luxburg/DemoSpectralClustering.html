@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <title>GraphDemo</title>
+  <meta content="Evrsoft First Page" name="GENERATOR">
+</head>
+
+<body>
+  <table style="WIDTH: 100%; HEIGHT: 20%" align="center" bgcolor="#00FFFF">
+    <tbody>
+      <tr>
+        <td width="10%"><img height="150" src="GraphPicture.png" width="190" border="0"></td>
+
+        <td width="5%"></td>
+
+        <td width="80%">
+          <p align="left"><font face="Verdana" size="6">DemoSpectralClustering</font></p>
+
+          <p align="left"><font face="Verdana" size="4">a Matlab GUI to explore spectral clustering and the influence of different similarity graphs</font></p>
+
+          <p align="left">&nbsp;</p>
+
+          <p align="left"><font face="Verdana">by <a href="http://www.ml.uni-saarland.de/index.html">Matthias Hein</a> and <a href="http://www.kyb.mpg.de/~ule">Ulrike von Luxburg</a></font></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p align="center"><a href="GraphDemo.html"><font face="Arial" size="5">[ Go to GraphDemo main page]</font></a></p>
+
+  <h3><font face="Verdana">Purpose</font></h3>
+
+  <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <p><font face="Verdana">DemoSpectralClustering: In this demo, we would like to show how (normalized) spectral clustering behaves for different kinds of neighborhood graphs. In particular, we want
+    to explore how the first eigenvectors of the graph Laplacian and the resulting low-dimensional embeddings react for different choices of neighborhood graphs.</font></p>
+  </blockquote>
+
+  <h3><font face="Verdana">Tutorial</font></h3>
+
+  <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <p><font face="Verdana">DemoSpectralClustering has been used for teaching purposes at the Machine Learning Summer School 2007 in Tuebingen, Germany. The tutorial which is based on
+    DemoSpectralClustering introduces the theoretical foundations of spectral clustering as well as given practical hints for spectral clustering using behavior on toy datasets.</font><br></p>
+  </blockquote>
+
+  <p align="center"><a href="HeinLuxburg_SlidesSpectralClustering.pdf"><font face="Verdana" size="5">Download tutorial on spectral clustering</font></a></p>
+
+  <p>&nbsp;</p>
+
+  <h3><font face="Verdana">Screenshot of DemoSimilarityGraphs</font></h3>
+
+  <p align="center"><img style="WIDTH: 52.26%; HEIGHT: 52.26%" height="948" src="fig_DemoSpectralClustering.png" width="100%" border="0"></p><br>
+  <br>
+
+  <h3><font face="Verdana">Panels in DemoSpectralClustering</font></h3>
+
+  <blockquote>
+    <p><font face="Verdana">This demo implements normalized spectral clustering, using the eigenvectors of the random walk Laplacian L_rw = D^{-1} (D - S). The eigenvectors are used to map each data
+    point i to the new representation (v_1i, v_2i, ..., v_ki), which yields an embedding of the data points into Euclidean space. The final clustering is done using k-means clustering in the new
+    representation. Of course there are many other variants of
+    spectral clustering which we did not incorporate in the demo. For
+    a survey of some of them see the overview paper <a
+    href="http://www.kyb.tuebingen.mpg.de/bs/people/ule/publications/publication_downloads/Luxburg07_tutorial.pdf">A
+    tutorial on spectral clustering</a>.</font></p>
+    <ul>
+      <li><font face="Verdana"><font face="Verdana">The first row contains three plots, which are more or less self-explanatory: the first plot shows <strong><em>the data set</em></strong>, the
+      second plot <strong><em>the current similarity graph</em></strong>. Both of those plots coincide with the corresponding plots in DemoSimilarityGraphs. The third plot shows <strong><em>the
+      clustering of data</em></strong> obtained using spectral clustering.</font></font></li>
+
+      <li><font face="Verdana"><font face="Verdana"><strong><em>The eigenvector plots (second row):</em></strong> here we plot <strong><em>the first 5 eigenvectors</em></strong> (in subfigures 1 to
+      5, from left to right) of the Laplacian L_rw. Those eigenvectors are used to construct the embedding used in spectral clustering. If v = (v_1, ..., v_n)' denotes a particular eigenvector, the
+      corresponding eigenvector plot shows the data points x_i, color-coded by the entry v_i of the eigenvector. Ideally, the eigenvectors should be more or less constant on the clusters. Note that
+      the color-scale is the same in all five eigenvector plots, as shown in the colorbar to the right.</font></font></li>
+
+      <li><font face="Verdana"><font face="Verdana"><strong><em>The eigenvalues (third row):</em></strong> here we plot the 10 smallest eigenvalues of L_rw, ordered by size. In detail, we plot i
+      versus lambda_i, where lambda_i is the i-th smallest eigenvalue of L_rw.</font></font></li>
+
+      <li><font face="Verdana"><font face="Verdana"><strong><em>Embedding (third row):</em></strong> this plot shows the embedding used in spectral clustering. We plot the embedding realized by the
+      first three informative eigenvectors. Note that if the graph is connected, then the first eigenvector is the constant 1 vector, which we discard in the plot. We then plot the points (v_2i,
+      v_3i, v_4i) where v_ji denotes the i-th entry in eigenvector j. In case the graph is disconnected, the first eigenvector is not constant. In this case we plot (v_1i, v_2i, v_3i). Note that by
+      clicking on the plot and moving the mouse, one can rotate this plot to get a 3d-impression.</font></font></li>
+    </ul>
+  </blockquote>
+</body>
+</html>

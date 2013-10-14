@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <title>GraphDemo</title>
+  <meta content="Evrsoft First Page" name="GENERATOR">
+</head>
+
+<body>
+  <table style="WIDTH: 100%; HEIGHT: 20%" align="center" bgcolor="#00FFFF">
+    <tbody>
+      <tr>
+        <td width="10%"><img height="150" src="GraphPicture.png" width="190" border="0"></td>
+
+        <td width="5%"></td>
+
+        <td width="80%">
+          <p align="left"><font face="Verdana" size="6">DemoSimilarityGraphs</font></p>
+
+          <p align="left"><font face="Verdana" size="4">a Matlab GUI to explore similarity graphs</font></p>
+
+          <p align="left">&nbsp;</p>
+
+          <p align="left"><font face="Verdana">by <a href="http://www.ml.uni-saarland.de/index.html">Matthias Hein</a> and <a href="http://www.kyb.mpg.de/~ule">Ulrike von Luxburg</a></font></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p align="center"><a href="GraphDemo.html"><font face="Arial" size="5">[ Go to GraphDemo main page]</font></a></p>
+
+  <h3><font face="Verdana">Purpose</font></h3>
+
+  <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <p><font face="Verdana">DemoSimilarityGraphs: Given a data set and a similarity function, there are many different ways how a similarity graph can be constructed: epsilon-neighborhood graphs,
+    k-nearest neighbor graphs in different flavors, completely connected graphs, weighted or unweighted graphs, and many more . Additionally, most of those graphs come with a parameter which has to
+    be chosen. The purpose of this demo is to show how different neighborhood graphs can behave on the same data set (see below for more details).</font></p>
+  </blockquote>
+
+  <h3><font face="Verdana">Tutorial</font></h3>
+
+  <blockquote dir="ltr" style="MARGIN-RIGHT: 0px">
+    <p><font face="Verdana">DemoSimilarityGraphs has been used for teaching purposes at the Machine Learning Summer School 2007, at the Max-Planck-Institute for Biological Cybernetics, Tuebingen,
+    Germany. The tutorial introduces the different neighborhood graphs and demonstrates properties and some surprising effects using the tool.</font></p>
+  </blockquote>
+
+  <p align="center"><a href="HeinLuxburg_SlidesSimilarityGraphs.pdf"><font face="Arial" size="5">Download the tutorial on similarity graphs.</font></a></p>
+
+  <p>&nbsp;</p>
+
+  <h3><font face="Verdana">Screenshot of DemoSimilarityGraphs</font></h3>
+
+  <p align="center"><img style="WIDTH: 52.26%; HEIGHT: 52.26%" height="948" src="fig_DemoSimilarityGraphs.png" width="100%" border="0"></p>
+
+  <h3><font face="Verdana">Panels in DemoSimilarityGraphs</font></h3>
+
+  <div style="margin-left: 2em">
+    <ul>
+      <li><font face="Verdana"><strong><em>Data set:</em></strong> here we plot the first two dimensions of the data set. All other dimensions are noise only.</font></li>
+
+      <li><font face="Verdana"><strong><em>Heat map of the similarity values:</em></strong> This is a plot of the similarity matrix on the given data points. Each pixel in the plot corresponds to one
+      entry in the similarity matrix. Red means "high value", blue means "low" value. This panel is meant to help the user to adjust a reasonable value sigma for the similarity function. Note that
+      the data points are ordered according to the clusters. Therefore one has a block structure in the similarity matrix.</font></li>
+
+      <li><font face="Verdana"><strong><em>Histogram of the similarity values:</em></strong> here we simply plot a histogram of all the entries in the similarity matrix. This panel is also meant to
+      help the user to adjust a reasonable value sigma for the similarity function.</font></li>
+
+      <li><font face="Verdana"><strong><em>Connectivity:</em></strong> In this panel we simply plot the edges of the graph. For speed reasons we refrained from color-coding the edge weights (all
+      edges are plotted in the same color, no matter what their edge weight is).</font></li>
+
+      <li><font face="Verdana"><strong><em>Degrees of the vertices:</em></strong> The degree of a vertex in the graph is the sum of the edge weights of the adjacent edges. In this plot we color code
+      the degree of all vertices (red = high, blue = low). Note that for all graph types, the degree can be interpreted as a density estimator of the underlying density at the given data
+      point.</font></li>
+
+      <li><font face="Verdana"><strong><em>Adjacency matrix:</em></strong> here we show a heat map of the adjacency matrix of the graph. In case the graph is weighted, of course also the adjacency
+      matrix is weighted. Note that the adjacency matrix encodes similarities <em>and</em> edges of the graph.</font></li>
+
+      <li><font face="Verdana"><strong><em>Points per connected component:</em></strong> It shows how many connected components the graph has, and how many points each of the connected components
+      contains. This plot is very important, as most graph-based learning algorithms treat different connected components individually.</font></li>
+    </ul>
+  </div>
+</body>
+</html>
