@@ -1,0 +1,1 @@
+0.000::cup(o1); 0.000::glass(o1); 0.001::can(o1); 0.000::knife(o1); 0.004::pot(o1); 0.000::pan(o1); 0.013::bowl(o1); 0.000::kitchen_tool(o1); 0.000::screwdriver(o1); 0.000::hammer(o1); 0.982::bottle(o1);  <- scenario_object(o1).

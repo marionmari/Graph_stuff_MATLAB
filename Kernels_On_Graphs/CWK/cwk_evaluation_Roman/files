@@ -1,0 +1,6 @@
+precompute_kernels: given learned parameters, calcultes L+, K_diff and K_RL
+learn_all_parameters: handles learning parameters for multiple problems
+learn_single_parameters: handles learning parameters for a single problem
+run_short_walk_parameters_learned_parameters: handles running all experiments after parameters are learned
+set_learned_parameters: handles assinging learned parameters to canonical names
+test_propagation_kernel: handles a single experiment given learned parameters
