@@ -1,67 +1,59 @@
 
 
-addpath(genpath('/Users/marion/workspace/CWK_stuff/'))
+addpath(genpath('./'))
+addpath(genpath('/home/marion/MATLAB/libsvm-3.17'))
 
-% READ data
-data_path = '/Users/marion/workspace/DATA/';
-dataset = 'MUTAG';
-data = load([data_path 'GK_benchmark/' dataset '.mat']);
+% % LOAD data
+% data_path = '../data/GK_benchmark/';
+% dataset = 'MUTAG';
+% tmp = load([data_path dataset '.mat'])
+% break
 
-% dataset = 'MSRC_21C'    % 'MSRC_21' 'MSRC_9'
-% data = load([data_path 'ImageData/' dataset '.mat'])
+% data_path = '/home/marion/workspace_IMAGE/ImageAlgorithms/data/sample_regions_selected/';
+% dataset = 'plants_graph_data_cerc_gesund1';
+% load([data_path dataset '.mat']);
 
+data_path = '../data/ImageData/';
+dataset = 'MSRC_9_Nov13'    % 'MSRC_21' 'MSRC_21C'
+load([data_path dataset '.mat'])
+[ids, imnames] = textread([data_path 'map_id2im_' dataset '.txt'], '%d %s');
 
-labels = double(data.labels);       % graph labels
-
-num_graphs = length(labels)
-node_labels = data.responses;
-graph_ind = double(data.graph_ind);
-A = data.A;
-
-% ASSUMPTION: no graphs removed entirely...
-ids_connected = find(sum(A,2)~=0);
-A = A(ids_connected,ids_connected);
-node_labels = node_labels(ids_connected);
-graph_ind = graph_ind(ids_connected);
-
-% row-normalize adjacency matrix!
-if find(sum(A,1)~=1)
-  A = bsxfun(@times, A, 1./sum(A,2));  
-end
+labels = cellfun(@(x) strsplit(x,'_'), imnames, 'UniformOutput', false);
+labels = cellfun(@(x) str2num(x{1}), labels);
 
 
-USE_DIFF = false;
-node_label_ind = (1:size(graph_ind,1));
+A      = data;
+node_labels = responses;
+clear('data', 'responses');
 
-%---------------------------------------------------------------------%
-if USE_DIFF
-    % COMPUTE diffusion graph kernel
-    use_pushback = false;
-    take_sum = true;
+% % ASSUMPTION: no graphs removed entirely...
+% ids_connected = find(sum(A,2)~=0);
+% A = A(ids_connected,ids_connected);
+% node_labels = node_labels(ids_connected);
+% graph_ind = graph_ind(ids_connected);
 
-    % kernel parameter(s)
-    max_height = 10;
-    w = 1e-5;
-    use_cauchy = false;
+num_nodes   = size(A, 1);
+num_classes = max(node_labels);
+num_graphs = max(graph_ind);
 
-    K = propagation_kernel(A, graph_ind, node_labels, node_label_ind, ...
-                                max_height, w, use_cauchy, use_pushback, take_sum);
-else
 
-    % COMPUTE coinciding walk graph kernel
-    walk_length = 25;
-    alpha = 0.1
-    K_nodes = short_walk_kernel_full(A, node_labels, node_label_ind, walk_length, 'alpha', alpha);
-    
-    K = zeros(num_graphs);
-    for i=1:num_graphs
-        for j=1:i
-            K_tmp = K_nodes(graph_ind==i,graph_ind==j);
-            K(i,j)= mean(K_tmp(:));
-        end
-    end
-    K = K + K' - diag(diag(K));
-end
+
+run_pk;
+
+% run_wl;
+% run_wl_edge;
+% run_wl_sp;
+% run_rg;
+% run_prw;
+% run_rw;
+% run_gc
+% run_sp;
+
+
+
+
+
+
 
 %---------------------------------------------------------------------%
 
@@ -69,33 +61,36 @@ svm_options = @(c)(['-q  -e 0.01 -m 3000 -t 4 -c ' num2str(c)]);
 svm_options_learn = @(c)(['-q -e 0.01 -v 10  -m 3000 -t 4 -c ' num2str(c)]);
 
 % LEARN SVM cost
-costs = 10.^(3:5);
+costs = 10.^(-3:2);
 acc_learn = zeros(length(costs),1);
 for c=1:length(costs)
     acc_learn(c) = svmtrain_libsvm(labels,[(1:num_graphs)' K], svm_options_learn(costs(c)));
 end
 [~, id] = max(acc_learn);
+% id = 4; % use fixed COST!
+
 fprintf('learned SVM cost: %3f \n',costs(id))
-% id = 2;
-
-
-num_folds = 10;  
-num_reruns = 10;
+num_folds = 20;  
+num_reruns = 1;
 ACC = 0;
 
 for r=1:num_reruns
+%     c = cvpartition(num_graphs,'kfold',num_folds);
+%     save('c.mat', 'c');
+%     break
+    load('c.mat');
     
-    indices = crossvalind('Kfold', num_graphs, num_folds);
     mean_acc = 0;
     for i=1:num_folds
-        train_ind = find(indices~=i);
-        test_ind = find(indices==i);
+        train_ind = find(training(c,i)==1);
+        test_ind = find(training(c,i)==0);  
+
         K_train = [(1:length(train_ind))' K(train_ind,train_ind)];
         K_test = [(1:length(test_ind))' K(test_ind,train_ind)];
 
 
 %         % LEARN SVM cost~
-%         costs = 10.^(-3:3);
+%         costs = 10.^(-3:2);
 %         acc_learn = zeros(length(costs),1);
 %         for c=1:length(costs)
 %             acc_learn(c) = svmtrain_libsvm(labels(train_ind),K_train, svm_options_learn(costs(c)));

@@ -1,5 +1,6 @@
 
 
+addpath(genpath('../data'))
 addpath(genpath('./'))
 addpath(genpath('/home/marion/MATLAB/libsvm-3.17'))
 
