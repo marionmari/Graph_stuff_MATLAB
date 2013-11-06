@@ -38,16 +38,16 @@ num_graphs = max(graph_ind);
 
 
 
-run_pk;
+run_pk;             % propagation kernel
 
-% run_wl;
-% run_wl_edge;
-% run_wl_sp;
-% run_rg;
-% run_prw;
-% run_rw;
-% run_gc
-% run_sp;
+% run_wl;           % weisfeiler-lehman kernel
+% run_wl_edge;      % weisfeiler-lehman edge kernel
+% run_wl_sp;        % weisfeiler-lehman shortest path kernel
+% run_rg;           % ramon-gaertner kernel
+% run_prw;          % p-step random walk kernel
+% run_rw;           % random walk kernel
+% run_gc;           % graphlet count kernel
+% run_sp;           % shortest path kernel
 
 
 
