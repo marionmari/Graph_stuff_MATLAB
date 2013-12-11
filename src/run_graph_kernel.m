@@ -38,8 +38,8 @@ num_graphs = max(graph_ind);
 
 
 
+% COMPUTE KERNEL
 run_pk;             % propagation kernel
-
 % run_wl;           % weisfeiler-lehman kernel
 % run_wl_edge;      % weisfeiler-lehman edge kernel
 % run_wl_sp;        % weisfeiler-lehman shortest path kernel
@@ -56,6 +56,7 @@ run_pk;             % propagation kernel
 
 
 %---------------------------------------------------------------------%
+% KERNEL EVALUATION (SVM Classification)
 
 svm_options = @(c)(['-q  -e 0.01 -m 3000 -t 4 -c ' num2str(c)]);
 svm_options_learn = @(c)(['-q -e 0.01 -v 10  -m 3000 -t 4 -c ' num2str(c)]);
@@ -80,7 +81,7 @@ for r=1:num_reruns
 %     break
     load('c.mat');
     
-    mean_acc = 0;
+    accurracies = zeros(num_folds, 1);
     for i=1:num_folds
         train_ind = find(training(c,i)==1);
         test_ind = find(training(c,i)==0);  
@@ -103,11 +104,11 @@ for r=1:num_reruns
         model = svmtrain_libsvm(labels(train_ind),K_train, svm_options(costs(id)));
         [y_pred, acc, decision_vals] = svmpredict(labels(test_ind),K_test, model, '-q');
         acc = acc(1);
-        mean_acc = mean_acc + acc;
+        accurracies(i) = acc;
 
 
     end
-    mean_acc = mean_acc./num_folds;
+    mean_acc = mean(accurracies);
     ACC = ACC + mean_acc;
 end
 ACC = ACC/num_reruns
